@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>this is main page</title>
+  <script type="text/javascript" src="{{url_for('static',filename='bower_components/jquery/dist/jquery.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='bower_components/angular/angular.min.js')}}"></script>
+  <script src="{{url_for('static',filename='bower_components/angular-ui-router/release/angular-ui-router.min.js')}}" charset="utf-8"></script>
+  <script src="{{url_for('static',filename='myjs/mytodo.js')}}" charset="utf-8"></script>
+  <script src="{{url_for('static',filename='myjs/hello.js')}}" charset="utf-8"></script>
+</head>
+
+<body ng-app="myApp">
+  <p>hello main page</p>
+  <div ng-controller="myCtrl">
+    <input type="text" name="uname" ng-model="uname">
+    <button type="button" name="button" ng-click="todo();uname=''">Submit</button>
+    <hr>
+    <p>{{msg}}</p>
+    <p>your input : {[ msg1 ]}</p>
+    <div class="">
+      <form class="" action="/setup" method="post">
+        UserName :<input type="text" name="inName"><br/> UserEmail :<input type="text" name="inEmail"><br/> UserAddress :<input type="text" name="inAddress"><br/>
+        <input type="submit" name="bsubmit" value="Submit">
+        <button type="button" name="button" class="btn">Save it</button>
+      </form>
+    </div>
+  </div>
+  <div class="">
+    <ol>
+      {% for it in items %}
+      <li>{{it.name}} / {{it.email}} /{{it.address}}</li>
+      {% endfor %}
+    </ol>
+  </div>
+  <hr>
+
+</body>
+
+</html>
